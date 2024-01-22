@@ -1,0 +1,6 @@
+int32 age
+string name
+bool is_citizen
+bool is_student
+---
+bool is_applicable
