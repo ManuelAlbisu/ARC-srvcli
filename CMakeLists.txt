@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(arc_cpp_srvcli)
+project(applicant_requirements)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,10 +7,12 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
-add_executable(server src/worker_applicability_server.cpp)
-ament_target_dependencies(server rclcpp)
+# generate C++ headers from .srv files
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/Requirements.srv"
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -23,9 +25,5 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
-install(TARGETS
-  server
-  DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
