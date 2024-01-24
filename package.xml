@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>applicant_requirements</name>
+  <name>application_requirements</name>
   <version>0.0.0</version>
   <description>Simple C++ service-client application requirements example</description>
   <maintainer email="malbi005@fiu.edu">Manuel Albisu-Bouza</maintainer>
@@ -11,6 +11,8 @@
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+
+  <depend>rclcpp</depend>
 
   <buildtool_depend>rosidl_default_generators</buildtool_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>
